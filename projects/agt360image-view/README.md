@@ -1,24 +1,85 @@
-# Agt360imageView
+# 360 Image View for Angular
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
+An Angular component for displaying and interacting with 360-degree images.
 
-## Code scaffolding
+## Dependencies
 
-Run `ng generate component component-name --project agt360image-view` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project agt360image-view`.
-> Note: Don't forget to add `--project agt360image-view` or else it will be added to the default project in your `angular.json` file. 
+version available for Angular
 
-## Build
+| agt360image-view | Angular     |
+| ---------------- | ----------- |
+| 0.0.1            | 17.x        |
 
-Run `ng build agt360image-view` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Installation
 
-## Publishing
+Install the package using npm:
 
-After building your library with `ng build agt360image-view`, go to the dist folder `cd dist/agt360image-view` and run `npm publish`.
+```bash or powershell```
+npm install agt360image-view.
 
-## Running unit tests
+## Setup
 
-Run `ng test agt360image-view` to execute the unit tests via [Karma](https://karma-runner.github.io).
+**step 1:** import component
 
-## Further help
+```typescript
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
+import { Agt360imageViewComponent } from 'agt360image-view'
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, RouterOutlet, Agt360imageViewComponent],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
+})
+export class AppComponent {}
+```
+
+**step 2:** define properties
+
+``` typescript
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
+import { Agt360imageViewComponent } from 'agt360image-view'
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, RouterOutlet, Agt360imageViewComponent],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
+})
+export class AppComponent {
+
+  src = '../assets/example.jpg'  // add the 360 image url
+  width = 700;
+  height = 500;
+
+}
+```
+
+**step 3:** assign values
+
+```html
+<agt360image-view [src]="src" [width]="width" [height]='height'></agt360image-view>
+```
+
+## Mandatory Fields
+
+| property         | required    |
+| ---------------- | ----------- |
+| src              | TRUE        |
+| width            | TRUE        |
+| height           | TRUE        |
+
+
+## License
+
+MIT
+
+---
+
+> GitHub [@Aswinthgt](https://github.com/Aswinthgt)

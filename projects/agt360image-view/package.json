@@ -2,11 +2,30 @@
   "name": "agt360image-view",
   "version": "0.0.1",
   "peerDependencies": {
-    "@angular/common": "^17.0.0",
-    "@angular/core": "^17.0.0"
+    "@angular/common": ">=17.0.0",
+    "@angular/core": ">=17.0.0"
   },
   "dependencies": {
-    "tslib": "^2.3.0"
+    "tslib": ">=2.3.0",
+    "three": "^0.160.0"
   },
-  "sideEffects": false
+  "devDependencies": {
+    "@types/three": "^0.160.0"
+  },
+  "sideEffects": false,
+  "description": "360 image view for Angular",
+  "keywords": [
+    "Angular",
+    "Angular 360",
+    "360",
+    "image",
+    "view",
+    "360 image view",
+    "360 image viewer",
+    "Angular 360 image view",
+    "angular 360 view",
+    "Angular rotate image"
+  ],
+  "license":"MIT",
+  "author": "Aswinth GT"
 }

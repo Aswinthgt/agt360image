@@ -1,0 +1,77 @@
+import { ElementRef, Injectable, NgZone, inject } from '@angular/core';
+import {Scene, PerspectiveCamera, WebGLRenderer} from 'three';
+import { ImageSphereService } from './ImageSphere/image-sphere.service';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class LoaderService {
+
+  private imageSphere = inject(ImageSphereService);
+  private scene: Scene;
+  private camera: PerspectiveCamera;
+  private renderer: WebGLRenderer;
+  private control: OrbitControls;
+  private ngZone = inject(NgZone);
+
+  setInit(element:ElementRef, image: string, width: number, height: number) {
+    this.load_imageScene();
+    this.load_imageCamera(width, height);
+    this.imageRender(width, height);
+    element.nativeElement.appendChild(this.renderer.domElement);
+    this.set_orbitControl();
+    const sphere = this.imageSphere.getSphere(image);
+    this.scene.add(sphere);
+    this.render();
+  }
+
+
+  private load_imageScene() {
+    this.scene = new Scene();
+  }
+
+  private load_imageCamera(width: number, height: number) {
+    this.camera = new PerspectiveCamera(
+      75,
+      width / height,
+      0.01,
+      1000
+    );
+    this.camera.position.z = 0.01;
+  }
+
+  private imageRender(width: number, height: number) {
+    this.renderer = new WebGLRenderer();
+    this.renderer.setSize(width, height);
+  }
+
+  private set_orbitControl() {
+    this.control = new OrbitControls(this.camera, this.renderer.domElement);
+    this.control.enableDamping = true;
+    this.control.rotateSpeed = -0.3;
+    this.control.zoomSpeed = -1;
+    this.control.panSpeed = -0.3;
+  }
+
+
+  private render(): void {
+    this.ngZone.runOutsideAngular(() => {
+      requestAnimationFrame(() => this.render());
+    });
+    this.control.update()
+    this.renderer.render(this.scene, this.camera);
+  }
+
+  image_Re_render(image: string) {
+    this.scene.add(this.imageSphere.getSphere(image));
+    this.renderer.render(this.scene, this.camera);
+  }
+
+  update_W_H(width:number, height:number){
+    this.renderer.setSize(width, height);
+    this.camera.aspect = width / height;
+    this.camera.updateProjectionMatrix();
+  }
+
+}
