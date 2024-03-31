@@ -29,5 +29,9 @@
     "360 Angular"
   ],
   "license":"MIT",
-  "author": "Aswinth GT"
+  "author": "Aswinth GT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Aswinthgt/agt360image"
+  }
 }
