@@ -2,7 +2,7 @@
 
 An Angular component for displaying and interacting with 360-degree images.
 
-# What's New in agt360image-view v0.0.2
+# What's New in agt360image-view v0.0.4
 
 ### 1. Reactive Signal Mechanism
 
@@ -21,7 +21,7 @@ version available for Angular
 | agt360image-view | Angular     |
 | ---------------- | ----------- |
 | 0.0.1            | 17.x        |
-| 0.0.2            | 17.3.x      |
+| 0.0.4            | 17.3.x      |
 
 ## Installation
 
