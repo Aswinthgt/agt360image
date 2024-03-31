@@ -1,5 +1,6 @@
-import { Component, ElementRef, Input, OnChanges, ViewChild, afterNextRender } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnChanges, ViewChild, afterNextRender, effect, inject, input, viewChild } from '@angular/core';
 import { LoaderService } from './service/loader.service';
+import { RotateImage } from './models/interface';
 
 @Component({
   selector: 'agt360image-view',
@@ -10,24 +11,38 @@ import { LoaderService } from './service/loader.service';
   `,
   styles: ``
 })
-export class Agt360imageViewComponent implements OnChanges {
+export class Agt360imageViewComponent implements AfterViewInit {
 
-  @Input({ required: true }) src: string;
-  @Input({ required: true }) width: number;
-  @Input({ required: true }) height: number;
-  @ViewChild('renderImage') private renderImage: ElementRef;
+  src = input.required<string>();
+  width = input.required<number>();
+  height = input.required<number>();
+  autoRotate = input<RotateImage>();
+
+  renderImage = viewChild<ElementRef>('renderImage');
+
+  private loadImage = inject(LoaderService)
+
   private rerender = false;
 
-  constructor(private loadImage: LoaderService) {
-    afterNextRender(() => {
-      loadImage.setInit(this.renderImage, this.src, this.width, this.height)
-      this.rerender = true;
+  constructor() {
+    effect(()=>{
+      this.changes();
     })
   }
-  ngOnChanges(): void {
+
+  changes(): void {
     if (this.rerender) {
-      this.loadImage.image_Re_render(this.src)
-      this.loadImage.update_W_H(this.width, this.height)
+      this.loadImage.image_Re_render(this.src())
+      this.loadImage.update_W_H(this.width(), this.height())
     }
+
+    if(this.rerender && this.autoRotate()){
+      this.loadImage.autoRotate(this.autoRotate())
+    }
+  }
+
+  ngAfterViewInit(): void {
+    this.loadImage.setInit(this.renderImage() as ElementRef, this.src(), this.width(), this.height())
+    this.rerender = true;
   }
 }

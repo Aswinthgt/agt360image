@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { Agt360imageViewComponent } from 'agt360image-view'
+import { Agt360imageViewComponent, RotateImage } from 'agt360image-view';
 
 @Component({
   selector: 'app-root',
@@ -15,5 +15,9 @@ export class AppComponent {
   src = '../assets/pro2.jpg'
   width = 700;
   height = 500;
-
+  autoroatate: RotateImage= {    // Optional
+    isRotate: true,
+    rotateSpeed: 0.5
+  };
+ 
 }

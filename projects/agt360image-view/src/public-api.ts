@@ -4,3 +4,4 @@
 
 
 export * from './lib/agt360image-view.component';
+export * from './lib/models/interface';

@@ -2,6 +2,7 @@ import { ElementRef, Injectable, NgZone, inject } from '@angular/core';
 import {Scene, PerspectiveCamera, WebGLRenderer} from 'three';
 import { ImageSphereService } from './ImageSphere/image-sphere.service';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { RotateImage } from '../models/interface';
 
 @Injectable({
   providedIn: 'root'
@@ -72,6 +73,12 @@ export class LoaderService {
     this.renderer.setSize(width, height);
     this.camera.aspect = width / height;
     this.camera.updateProjectionMatrix();
+  }
+
+  autoRotate(options?: RotateImage){
+    this.control.autoRotate = options?.isRotate || false;
+    this.control.autoRotateSpeed = options?.rotateSpeed || 0;
+    this.control.update()
   }
 
 }
