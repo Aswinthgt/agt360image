@@ -2,17 +2,9 @@
 
 An Angular component for displaying and interacting with 360-degree images.
 
-# What's New in agt360image-view v0.0.4
+# What's New in agt360image-view v0.0.5
 
-### 1. Reactive Signal Mechanism
-
-- Transitioned to Angular's new reactive primitive type, signals, for improved change detection efficiency.
-- Automatic notification of dependent components ensures streamlined updates without exhaustive tree checks.
-
-### 2. Optional Autorotate Feature
-
-- Developers now have the flexibility to enable or disable autorotation at any time.
-- Empower users with dynamic viewing experiences or manual exploration of 360 images as desired.
+- updated to be compatible with Angular v18. You can now use the agt360image-view component with Angular v18.
 
 ## Dependencies
 
@@ -22,6 +14,7 @@ version available for Angular
 | ---------------- | ----------- |
 | 0.0.1            | 17.x        |
 | 0.0.4            | 17.3.x      |
+| 0.0.5            | 18.x        |
 
 ## Installation
 
@@ -43,7 +36,7 @@ import { Agt360imageViewComponent } from 'agt360image-view';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, Agt360imageViewComponent],
+  imports: [Agt360imageViewComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -54,14 +47,12 @@ export class AppComponent {}
 
 ``` typescript
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
 import { Agt360imageViewComponent, RotateImage } from 'agt360image-view';  // Import 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, Agt360imageViewComponent],
+  imports: [Agt360imageViewComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
