@@ -1,0 +1,14 @@
+<div
+  class="agt-container"
+  #renderImage
+  [ngStyle]="style()"
+  (mouseover)="grab()"
+  (mousedown)="grabbing()"
+  (mouseup)="grab()"
+>
+  @if(enableFullScreen()){
+  <button class="fullscreen-btn" (click)="gotFullScreen()">
+    <span class="fullscreen-icon"></span>
+  </button>
+  }
+</div>
