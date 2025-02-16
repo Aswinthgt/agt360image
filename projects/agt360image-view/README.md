@@ -2,9 +2,13 @@
 
 An Angular component for displaying and interacting with 360-degree images.
 
-# What's New in agt360image-view v0.0.5
+### What's New in agt360image-view v0.0.11
 
-- updated to be compatible with Angular v18. You can now use the agt360image-view component with Angular v18.
+- updated to be compatible with Angular v19. You can now use the agt360image-view component with Angular v19.
+
+### Demo
+
+Check out the live demo: [360view-demo](https://360view-demo.vercel.app/)
 
 ## Dependencies
 
@@ -12,9 +16,7 @@ version available for Angular
 
 | agt360image-view | Angular     |
 | ---------------- | ----------- |
-| 0.0.1            | 17.x        |
-| 0.0.4            | 17.3.x      |
-| 0.0.5            | 18.x        |
+| 0.0.11           | 19.x        |
 
 ## Installation
 
@@ -25,7 +27,7 @@ npm install agt360image-view.
 
 ## Setup
 
-**step 1:** import component
+**step 1:** Import component
 
 ```typescript
 import { Component } from '@angular/core';
@@ -43,7 +45,7 @@ import { Agt360imageViewComponent } from 'agt360image-view';
 export class AppComponent {}
 ```
 
-**step 2:** define properties
+**step 2:** Define properties
 
 ``` typescript
 import { Component } from '@angular/core';
@@ -70,7 +72,7 @@ export class AppComponent {
 
 ```
 
-**step 3:** assign values
+**step 3:** Assign values
 
 ```html
 <agt360image-view
@@ -78,6 +80,7 @@ export class AppComponent {
   [width]="width"
   [height]="height"
   [autoRotate]="autoroatate"
+  [enableFullScreen]="true"
 ></agt360image-view>
 ```
 
@@ -89,6 +92,7 @@ export class AppComponent {
 | width            | true        |
 | height           | true        |
 | autoRotate       | optional    |
+| enableFullScreen | optional    |
 
 
 ## License

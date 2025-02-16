@@ -41,12 +41,12 @@ export class Agt360imageViewComponent implements AfterViewInit {
 
   constructor() {
     effect(() => {
-      this.changes();
+      this.changes(true);
     });
   }
 
-  private changes(): void {
-    if (this.rerender) {
+  private changes(reload: boolean = false): void {
+    if (this.rerender && reload) {
       this.loadImage.image_Re_render(this.src());
       this.loadImage.update_W_H(this.width(), this.height());
     }
@@ -64,6 +64,7 @@ export class Agt360imageViewComponent implements AfterViewInit {
       this.height()
     );
     this.rerender = true;
+    this.changes();
   }
 
   protected grab() {

@@ -39,11 +39,11 @@ export class LoaderService {
       0.01,
       1000
     );
-    this.camera.position.z = 0.01;
+    this.camera.position.z = 0.05;
   }
 
   private imageRender(width: number, height: number) {
-    this.renderer = new WebGLRenderer();
+    this.renderer = new WebGLRenderer({antialias: true});
     this.renderer.setSize(width, height);
   }
 
