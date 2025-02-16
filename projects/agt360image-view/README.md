@@ -2,9 +2,11 @@
 
 An Angular component for displaying and interacting with 360-degree images.
 
-### What's New in agt360image-view v0.0.11
-
-- updated to be compatible with Angular v19. You can now use the agt360image-view component with Angular v19.
+## 🆕 What's New in v19.7.1
+### Fixes & Improvements:
+- ✅ **Auto-Rotation Bug Fixed:** Auto-rotation now works correctly in the latest version.
+- ✅ **Improved Image Quality:** Better clarity and rendering performance.
+- ✅ **Updated Angular Compatibility:** Now supports **Angular 19.1.7**.
 
 ### Demo
 
@@ -17,6 +19,7 @@ version available for Angular
 | agt360image-view | Angular     |
 | ---------------- | ----------- |
 | 0.0.11           | 19.x        |
+| 0.0.12           | 19.x        |
 
 ## Installation
 
