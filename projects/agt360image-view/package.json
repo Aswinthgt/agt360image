@@ -1,9 +1,9 @@
 {
   "name": "agt360image-view",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "peerDependencies": {
-    "@angular/common": ">=19.0.0",
-    "@angular/core": ">=19.0.0",
+    "@angular/common": ">=20.0.0",
+    "@angular/core": ">=20.0.0",
     "three": "0.173.0"
   },
   "dependencies": {

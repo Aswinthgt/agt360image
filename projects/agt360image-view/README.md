@@ -2,11 +2,9 @@
 
 An Angular component for displaying and interacting with 360-degree images.
 
-## 🆕 What's New in v19.1.7
+## 🆕 What's New in v20.x.x
 ### Fixes & Improvements:
-- ✅ **Auto-Rotation Bug Fixed:** Auto-rotation now works correctly in the latest version.
-- ✅ **Improved Image Quality:** Better clarity and rendering performance.
-- ✅ **Updated Angular Compatibility:** Now supports **Angular 19.1.7**.
+- ✅ **Updated Angular Compatibility:** Now supports **Angular v20.x.x**.
 
 ### Demo
 
@@ -21,6 +19,7 @@ version available for Angular
 | 0.0.11           | 19.x        |
 | 0.0.12           | 19.x        |
 | 0.0.13           | 19.x        |
+| 0.0.14           | 20.x        |
 
 ## Installation
 

@@ -1,5 +1,5 @@
 import { ElementRef, Injectable, NgZone, inject } from '@angular/core';
-import {Scene, PerspectiveCamera, WebGLRenderer} from 'three';
+import { Scene, PerspectiveCamera, WebGLRenderer } from 'three';
 import { ImageSphereService } from './ImageSphere/image-sphere.service';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { RotateImage } from '../models/interface';
@@ -16,7 +16,7 @@ export class LoaderService {
   private control: OrbitControls;
   private ngZone = inject(NgZone);
 
-  setInit(element:ElementRef, image: string, width: number, height: number) {
+  setInit(element: ElementRef, image: string, width: number, height: number) {
     this.load_imageScene();
     this.load_imageCamera(width, height);
     this.imageRender(width, height);
@@ -43,16 +43,18 @@ export class LoaderService {
   }
 
   private imageRender(width: number, height: number) {
-    this.renderer = new WebGLRenderer({antialias: true});
+    this.renderer = new WebGLRenderer({ antialias: true });
     this.renderer.setSize(width, height);
   }
 
   private set_orbitControl() {
     this.control = new OrbitControls(this.camera, this.renderer.domElement);
-    this.control.enableDamping = true;
     this.control.rotateSpeed = -0.3;
-    this.control.zoomSpeed = -1;
+    this.control.zoomSpeed = 5;
     this.control.panSpeed = -0.3;
+    this.control.minDistance = 0.05; // Cannot zoom in closer than this
+    this.control.maxDistance = 0.05; // Cannot zoom out farther than this
+    this.control.enableZoom = true;
   }
 
 
@@ -69,13 +71,13 @@ export class LoaderService {
     this.renderer.render(this.scene, this.camera);
   }
 
-  update_W_H(width:number, height:number){
+  update_W_H(width: number, height: number) {
     this.renderer.setSize(width, height);
     this.camera.aspect = width / height;
     this.camera.updateProjectionMatrix();
   }
 
-  autoRotate(options?: RotateImage){
+  autoRotate(options?: RotateImage) {
     this.control.autoRotate = options?.isRotate || false;
     this.control.autoRotateSpeed = options?.rotateSpeed || 0;
     this.control.update()
